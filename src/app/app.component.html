@@ -1,27 +1,23 @@
-<!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
   <h1>
     Opportunities
   </h1>
 </div>
-<h2 style="text-align:center" *ngIf=!loaded>{{ loadText }}</h2>
-<div class="row" *ngIf=loaded (window:resize)="onResize($event)">
-  <div class="column" *ngFor="let op of opportunities">
-    <div class="box">
-      <div class="image text-center">
-        <img src="{{ op.photo }}" class="img-responsive">
-        <div class="caption">
-          <p>{{ op.title }}</p>
-        </div>
-      </div>
-      <div class="org">
-        <img style="float: left" src="{{ op.profile }}">
-        {{ op.name }}
-      </div>
-      <div class="info">
-        <div class="column">Location {{ op.location }}</div>
-        <div class="column">Duration {{ op.duration }}</div>
-      </div>
-    </div>
+<ngx-spinner></ngx-spinner>
+<div class="container">
+  <div class="row" *ngFor="let op3 of opportunities" style="padding-bottom: 20px;">
+    <app-card *ngFor="let op of op3" class="col-md"
+    [title] = "op.title"
+    [location] = "op.location"
+    [photo] = "op.photo"
+    [profile] = "op.profile"
+    [duration] = "op.duration"
+    [name] = "op.organisation"></app-card>
   </div>
+  <div
+      infiniteScroll
+      [infiniteScrollDistance]="0.1"
+      [infiniteScrollThrottle]="50"
+      (scrolled)="onScroll()"
+    ></div>
 </div>
