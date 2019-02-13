@@ -1,20 +1,22 @@
 <div class="box">
-  <div>
+  <div class="thumbnail text-center">
     <img class="img-fluid" src="{{ photo }}" style="height: 150px;">
     <div class="caption">
-      <p>{{ title }}</p>
+    <b>{{ title }}</b>
     </div>
   </div>
-  <div>
-      <img style="float: left; width: 32px; height: 32px;" src="{{ profile }}">
-      {{ name }}
+  <div class="row">
+    <div class="col">
+      <img style="width: 32px; height: 32px;" src="{{ profile }}">
+      <span style="padding-left: 5px;">{{ name }}</span>
+    </div>
   </div>
-  <span class="row">
+  <div class="row">
     <div class="col"><b>Location</b>
       <div>{{ location }}</div>
     </div>
     <div class="col"><b>Duration</b>
       <div>{{ duration }}</div>
     </div>
-  </span>
+  </div>
 </div>

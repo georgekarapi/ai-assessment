@@ -1,0 +1,18 @@
+<div class="modal-header">
+  <h1>Edit Details</h1>
+</div>
+<div class="modal-body">
+  <div>
+    <label for="description">Program Description</label><br />
+    <input #description id="description" [(ngModel)]="info.description"
+    [value]="info.description" type="text" (keyup.enter)="getInput()">
+  </div>
+  <div style="padding-top: 15px;">
+    <label for="organisation">Organisation Name</label><br />
+    <input #organisation id="organisation" [(ngModel)]="info.organisation"
+    [value]="info.organisation" type="text" (keyup.enter)="getInput()">
+  </div>
+</div>
+<div class="modal-footer">
+  <button class="btn btn-outline-dark" type="submit" (click)="getInput()">Submit</button>
+</div>

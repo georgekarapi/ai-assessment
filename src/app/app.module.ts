@@ -6,19 +6,24 @@ import { CardComponent } from './card/card.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { EditModalComponent } from './edit-modal/edit-modal.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CardComponent
+    CardComponent,
+    EditModalComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     NgbModule,
     InfiniteScrollModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    FormsModule
   ],
+  entryComponents: [ EditModalComponent],
   providers: [],
   bootstrap: [AppComponent]
 })

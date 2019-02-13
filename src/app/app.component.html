@@ -1,22 +1,38 @@
+<ngx-spinner></ngx-spinner>
 <div style="text-align:center">
   <h1>
     Opportunities
   </h1>
 </div>
-<ngx-spinner></ngx-spinner>
-<div class="container">
-  <div class="row" *ngFor="let op3 of opportunities" style="padding-bottom: 20px;">
-    <app-card *ngFor="let op of op3" class="col-md"
-    [title] = "op.title"
-    [location] = "op.location"
-    [photo] = "op.photo"
-    [profile] = "op.profile"
-    [duration] = "op.duration"
-    [name] = "op.organisation"></app-card>
+<div class="container" style="padding-top: 30px;">
+  <div *ngFor="let op3 of opportunities;let i = index;">
+  <div class="row pb-4" *ngIf="i%3 === 0">
+    <app-card (click)="setInfo(i)" *ngIf="opportunities[i]" class="col-md pb-4"
+    [title] = "opportunities[i].description"
+    [location] = "opportunities[i].location"
+    [photo] = "opportunities[i].photo"
+    [profile] = "opportunities[i].profile"
+    [duration] = "opportunities[i].duration"
+    [name] = "opportunities[i].organisation"></app-card>
+    <app-card (click)="setInfo(i + 1)" *ngIf="opportunities[i + 1]" class="col-md pb-4"
+    [title] = "opportunities[i + 1].description"
+    [location] = "opportunities[i + 1].location"
+    [photo] = "opportunities[i + 1].photo"
+    [profile] = "opportunities[i + 1].profile"
+    [duration] = "opportunities[i + 1].duration"
+    [name] = "opportunities[i + 1].organisation"></app-card>
+    <app-card (click)="setInfo(i + 2)" *ngIf="opportunities[i + 2]" class="col-md pb-4"
+    [title] = "opportunities[i + 2].description"
+    [location] = "opportunities[i + 2].location"
+    [photo] = "opportunities[i + 2].photo"
+    [profile] = "opportunities[i + 2].profile"
+    [duration] = "opportunities[i + 2].duration"
+    [name] = "opportunities[i + 2].organisation"></app-card>
+  </div>
   </div>
   <div
       infiniteScroll
-      [infiniteScrollDistance]="0.1"
+      [infiniteScrollDistance]="0.01"
       [infiniteScrollThrottle]="50"
       (scrolled)="onScroll()"
     ></div>
